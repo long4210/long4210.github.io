@@ -3,10 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>測試</title>
+    <title> Scott</title>
+    <link rel="stylesheet" href="css/style.css">
+   
+    <link href="css/aos.css" rel="stylesheet">
 </head>
 <body>
-    <h1>測試！</h1>
 
+    <header class="header">
+        <div class="logo">Scott</div>
+        <nav class="nav">
+            <a href="#about">關於我</a>
+            <a href="#travel">運動與旅遊</a>
+        </nav>
+    </header>
+
+    <section class="hero-section" data-aos="fade-in">
+        <div class="hero-content">
+           簡易的個人網頁<br>
+            <a href="#travel" class="cta-button">探索</a>
+        </div>
+    </section>
+
+    <section id="about" class="container about-section">
+        <h2>關於我</h2>
+        <div class="about-flex">
+            <div class="profile-image" data-aos="fade-right">
+                <img src="images/S__119390216.jpg" alt="個人頭像">
+            </div>
+            <div class="about-text" data-aos="fade-left">
+              
+                
+            </div>
+        </div>
+    </section>
+
+    <section id="travel" class="container travel-section">
+        <h2>運動、旅遊與生活</h2>
+        <div class="gallery">
+            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="100">
+                <img src="images/S__119390214_0.jpg" alt="運動照片">
+                <h4>運動</h4>
+                <p>2025越南平陽新市鎮21km。</p>
+            </div>
+			<div class="gallery-item" data-aos="zoom-in" data-aos-delay="700">
+                <img src="images/S__119390215_0.jpg" alt="運動照片">
+                <h4>運動</h4>
+                <p>健身。</p>
+            </div>
+            <div class="gallery-item" data-aos="zoom-in" data-aos-delay="300">
+                <img src="images/S__119390212.jpg" alt="旅遊照片">
+                <h4>韓國旅遊</h4>
+                <p>釜山賞楓</p>
+            </div>
+            <div class="gallery-item video-item" data-aos="zoom-in" data-aos-delay="500">
+                <iframe width="100%" height="315" src="https://www.youtube.com/embed/Kh6l68T-h6I" frameborder="0" allowfullscreen></iframe>
+                <h4>2018單車環島</h4>
+                <p>共騎11天，經過富貴角、三貂角、鵝鑾鼻</p>
+            </div>
+            
+        </div>
+    </section>
+
+   
+
+
+    <script src="js/aos.js"></script>
+    <script>
+        // 初始化 AOS
+        AOS.init({
+            duration: 1200, // 動畫持續時間 (毫秒)
+            once: true      // 元素只在第一次進入視圖時播放動畫
+        });
+    </script>
 </body>
 </html>
