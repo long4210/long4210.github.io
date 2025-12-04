@@ -174,7 +174,77 @@ a {
     padding: 20px 0;
     font-size: 0.9rem;
 }
+    body {
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
 
+/* 設置 3D 視角 */
+.scene {
+    width: 300px;
+    height: 200px;
+    margin: 100px auto;
+    perspective: 1200px; /* 視角深度 */
+}
+
+/* 輪播容器，負責旋轉 */
+.carousel {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d; /* 保持子元素在 3D 空間 */
+    animation: rotateCarousel 40s infinite linear; /* 應用動畫 */
+}
+
+/* 輪播面（照片容器）的基礎樣式 */
+.carousel__face {
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    background-color: #ddd; /* 圖片加載前的背景 */
+    overflow: hidden;
+    /* 啟用背面可見性 */
+    backface-visibility: hidden;
+}
+
+/* 圖片樣式 */
+.carousel__face img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 確保圖片填滿容器 */
+}
+
+/* 旋轉參數：360度 / 10面 = 36度/面 */
+/* 半徑 R 的計算近似值，讓圓柱體看起來舒適 */
+/* R 約為 480px */
+.carousel__face:nth-child(1) { transform: rotateY(0deg) translateZ(480px); }
+.carousel__face:nth-child(2) { transform: rotateY(36deg) translateZ(480px); }
+.carousel__face:nth-child(3) { transform: rotateY(72deg) translateZ(480px); }
+.carousel__face:nth-child(4) { transform: rotateY(108deg) translateZ(480px); }
+.carousel__face:nth-child(5) { transform: rotateY(144deg) translateZ(480px); }
+.carousel__face:nth-child(6) { transform: rotateY(180deg) translateZ(480px); }
+.carousel__face:nth-child(7) { transform: rotateY(216deg) translateZ(480px); }
+.carousel__face:nth-child(8) { transform: rotateY(252deg) translateZ(480px); }
+.carousel__face:nth-child(9) { transform: rotateY(288deg) translateZ(480px); }
+.carousel__face:nth-child(10) { transform: rotateY(324deg) translateZ(480px); }
+
+
+/* 定義持續旋轉的動畫 */
+@keyframes rotateCarousel {
+    from {
+        /* 起始時將整個輪播平移至視角中央，並從 0 度開始 */
+        transform: translateZ(-480px) rotateY(0deg);
+    }
+    to {
+        /* 結束時旋轉 360 度 */
+        transform: translateZ(-480px) rotateY(-360deg); /* 負值表示逆時針旋轉 */
+    }
+}
 /* --- 7. 響應式設計 (RWD Media Queries) --- */
 
 /* 平板電腦和手機優化 */
